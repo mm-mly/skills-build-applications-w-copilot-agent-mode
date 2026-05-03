@@ -15,13 +15,24 @@ export default function Teams() {
       });
   }, []);
   return (
-    <div>
-      <h2>Teams</h2>
-      <ul>
-        {teams.map(t => (
-          <li key={t.id}>{t.name}</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title display-6 mb-3">Teams</h2>
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teams.map(t => (
+              <tr key={t.id}>
+                <td>{t.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

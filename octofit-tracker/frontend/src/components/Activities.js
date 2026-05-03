@@ -15,13 +15,30 @@ export default function Activities() {
       });
   }, []);
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map(a => (
-          <li key={a.id}>{a.type} - {a.duration} min - {a.distance} km</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title display-6 mb-3">Activities</h2>
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>Type</th>
+              <th>Duration (min)</th>
+              <th>Distance (km)</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activities.map(a => (
+              <tr key={a.id}>
+                <td>{a.type}</td>
+                <td>{a.duration}</td>
+                <td>{a.distance}</td>
+                <td>{a.user?.username || a.user}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

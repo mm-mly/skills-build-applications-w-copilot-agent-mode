@@ -15,13 +15,28 @@ export default function Users() {
       });
   }, []);
   return (
-    <div>
-      <h2>Users</h2>
-      <ul>
-        {users.map(u => (
-          <li key={u.id}>{u.username} ({u.email})</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title display-6 mb-3">Users</h2>
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Team</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map(u => (
+              <tr key={u.id}>
+                <td>{u.username}</td>
+                <td>{u.email}</td>
+                <td>{u.team?.name || u.team}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

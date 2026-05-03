@@ -15,13 +15,28 @@ export default function Workouts() {
       });
   }, []);
   return (
-    <div>
-      <h2>Workouts</h2>
-      <ul>
-        {workouts.map(w => (
-          <li key={w.id}>{w.name} - {w.description}</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title display-6 mb-3">Workouts</h2>
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workouts.map(w => (
+              <tr key={w.id}>
+                <td>{w.name}</td>
+                <td>{w.description}</td>
+                <td>{w.user?.username || w.user}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
