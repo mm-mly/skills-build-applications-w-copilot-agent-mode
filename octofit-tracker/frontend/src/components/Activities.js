@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../apiConfig';
 
-const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`;
+const endpoint = `${API_BASE_URL}/api/activities/`;
 
 export default function Activities() {
   const [activities, setActivities] = useState([]);
