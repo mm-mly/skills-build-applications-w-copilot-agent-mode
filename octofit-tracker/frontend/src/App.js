@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink, Link } from 'react-router-dom';
 
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
@@ -21,11 +21,26 @@ function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item"><Link className="nav-link" to="/activities">Activities</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/leaderboard">Leaderboard</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/teams">Teams</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/users">Users</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/workouts">Workouts</Link></li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+                  to="/activities" end>Activities</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+                  to="/leaderboard">Leaderboard</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+                  to="/teams">Teams</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+                  to="/users">Users</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+                  to="/workouts">Workouts</NavLink>
+              </li>
             </ul>
           </div>
         </div>
